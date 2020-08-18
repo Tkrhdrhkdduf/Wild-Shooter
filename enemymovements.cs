@@ -9,10 +9,25 @@ public class enemymovements : MonoBehaviour
     public float moveSpeed = 5f;
     private Rigidbody2D rb;
     private Vector2 movement;
+    public int hp = 100;
+    public GameObject death;
     // Start is called before the first frame update
     void Start()
     {
         rb = this.GetComponent<Rigidbody2D>(); // 이컴포넌트는 RB를 이용하여 우리의 물체의 움직임과 회전을 조작할수있음
+    }
+    public void damagehp (int damage)
+    {
+        hp -= damage;
+        if(hp <= 0)
+        {
+            Die();
+        }
+    }
+    void Die()
+    {
+        Instantiate(death, transform.position, Quaternion.identity);
+        Destroy(gameObject);
     }
 
     // Update is called once per frame

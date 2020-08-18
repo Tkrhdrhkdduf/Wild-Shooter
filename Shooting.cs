@@ -18,12 +18,20 @@ public class Shooting : MonoBehaviour
             Shoot();
         }
     }
+    void OnTriggerEnter2D(Collider2D hitInfo)
+    {
+        Debug.Log(hitInfo.name);
+        Destroy(gameObject);
+    }
 
     void Shoot()
     {
-        GameObject bullet = Instantiate(bulletPrefab, FirePoint.position, FirePoint.rotation);
-        Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
+        GameObject Bullet = Instantiate(bulletPrefab, FirePoint.position, FirePoint.rotation);
+        Rigidbody2D rb = Bullet.GetComponent<Rigidbody2D>();
         rb.AddForce(FirePoint.up * bulletForce, ForceMode2D.Impulse);
 
     }
+   
+
+
 }
