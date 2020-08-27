@@ -2,34 +2,42 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class enemymovements : MonoBehaviour
- 
+public class Leopiodmovements : MonoBehaviour
+
 {
     public Transform player;
-    public float moveSpeed = 5f;
+    public float moveSpeed = 7f;
     private Rigidbody2D rb;
     private Vector2 movement;
     public int hp = 100;
     public GameObject death;
-    public int dam = 10;
+    public int dam = 25;
     // Start is called before the first frame update
     void Start()
     {
         rb = this.GetComponent<Rigidbody2D>(); // 이컴포넌트는 RB를 이용하여 우리의 물체의 움직임과 회전을 조작할수있음
     }
-    public void damagehp (int damage)
+    public void damagehp(int damage)
     {
         hp -= damage;
-        if(hp <= 0)
+        if (hp <= 0)
         {
             Die();
         }
     }
-   
+
     void Die()
     {
         Instantiate(death, transform.position, Quaternion.identity);
         Destroy(gameObject);
+    }
+    public void OnTriggerEnter2D(Collider2D damp)
+    {
+        PlayerMovements player = damp.GetComponent<PlayerMovements>();
+        if (player != null)
+        {
+            player.playerdamhp(dam);
+        }
     }
 
     // Update is called once per frame
@@ -49,15 +57,5 @@ public class enemymovements : MonoBehaviour
     void moveEnemy(Vector2 direction)
     {
         rb.MovePosition((Vector2)transform.position + (direction * moveSpeed * Time.deltaTime));
-    }
-    private void OnTriggerEnter2D(Collider2D damp)
-    {
-        PlayerMovements player = damp.GetComponent<PlayerMovements>();
-            if(player != null)
-            {
-                player.playerdamhp(dam);
-                
-            }
-        
     }
 }
