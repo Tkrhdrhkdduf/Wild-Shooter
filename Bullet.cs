@@ -8,7 +8,8 @@ public class Bullet : MonoBehaviour
     public GameObject hitEffect;
     public int dam = 50;
     public int dam1 = 25;
-    private float bulletspeed = 13;
+    public int dam2 = 5;
+    private float bulletspeed = 20;
     private Vector2 Direction;
     void Start()
     {
@@ -39,7 +40,14 @@ public class Bullet : MonoBehaviour
         {
             leopiod.damagehp(dam1);
         }
+        Destroy(gameObject); 
+        aeselionazard aeselionazard = hitDam.GetComponent<aeselionazard>();
+        if (aeselionazard != null)
+        {
+            aeselionazard.damagehp(dam2);
+        }
         Destroy(gameObject);
+
 
 
     }
