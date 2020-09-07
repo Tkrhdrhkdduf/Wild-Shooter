@@ -3,6 +3,8 @@
 # Project 
 first personal game 
 첫 개인 게임입니다
+Starting from wild to desert and Boss stage
+야생에서 시작해서 사막 그리고 마지막으로 보스스테이지까지
 
 # Developments
 Top view shooting game
