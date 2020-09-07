@@ -9,6 +9,8 @@ public class Bullet : MonoBehaviour
     public int dam = 50;
     public int dam1 = 25;
     public int dam2 = 5;
+    public int dam3 = 40;
+    public int dam4 = 20;
     private float bulletspeed = 20;
     private Vector2 Direction;
     void Start()
@@ -45,6 +47,17 @@ public class Bullet : MonoBehaviour
         if (aeselionazard != null)
         {
             aeselionazard.damagehp(dam2);
+        }
+        Destroy(gameObject);
+        cactusMovements cactus = hitDam.GetComponent<cactusMovements>();
+        if(cactus != null)
+        {
+            cactus.damagehp(dam3);
+        }
+        Destroy(gameObject);
+        bullswitchmovements bullswitch = hitDam.GetComponent<bullswitchmovements>();
+        if (bullswitch != null){
+            bullswitch.damagehp(dam4);
         }
         Destroy(gameObject);
 
