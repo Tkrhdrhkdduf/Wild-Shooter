@@ -11,6 +11,7 @@ public class Bullet : MonoBehaviour
     public int dam2 = 5;
     public int dam3 = 40;
     public int dam4 = 20;
+    public int dam5 = 5;
     private float bulletspeed = 20;
     private Vector2 Direction;
     void Start()
@@ -60,7 +61,12 @@ public class Bullet : MonoBehaviour
             bullswitch.damagehp(dam4);
         }
         Destroy(gameObject);
-
+        Kaserinmovements kaserin = hitDam.GetComponent<Kaserinmovements>();
+        if(kaserin != null)
+        {
+            kaserin.damagehp(dam5);
+        }
+        Destroy(gameObject);
 
 
     }
