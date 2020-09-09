@@ -12,6 +12,7 @@ public class Bullet : MonoBehaviour
     public int dam3 = 40;
     public int dam4 = 20;
     public int dam5 = 5;
+    public int dam6 = 3;
     private float bulletspeed = 20;
     private Vector2 Direction;
     void Start()
@@ -65,6 +66,12 @@ public class Bullet : MonoBehaviour
         if(kaserin != null)
         {
             kaserin.damagehp(dam5);
+        }
+        Destroy(gameObject);
+        Geoshinmovement Geoshin = hitDam.GetComponent<Geoshinmovement>();
+        if (Geoshin != null)
+        {
+           Geoshin.damagehp(dam6);
         }
         Destroy(gameObject);
 
