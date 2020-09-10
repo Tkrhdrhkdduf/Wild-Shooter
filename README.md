@@ -1,5 +1,5 @@
-# WildofShooter
-와일드 오브 슈터
+# Wild Shooter
+와일드 슈터
 # Project 
 first personal game 
 첫 개인 게임입니다
